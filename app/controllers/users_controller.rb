@@ -22,9 +22,11 @@ class UsersController < ApplicationController
     if @user.valid?
       redirect_to new_user_path
     else
+      flash.now[:error] = "Please resubmit!"
       render :edit
     end
   end
+
   private
 
   def user_params
