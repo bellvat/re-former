@@ -7,12 +7,18 @@
 </div>
 <div>
   <%= form_for @user, url: {action: "update"} do |f| %>
-    <%= f.label :username, 'Username' %>
-    <%= f.text_field :username %>
-    <%= f.label :email, 'Email' %>
-    <%= f.text_field :email %>
-    <%= f.label :password, 'Password' %>
-    <%= f.text_field :password %>
-    <%= f.submit "Submit" %>
+    <div>
+      <%= f.label :username%>
+      <%= f.text_field :username %>
+    </div>
+    <div>
+      <%= f.label :email%>
+      <%= f.text_field :email %>
+    </div>
+    <div>
+      <%= f.label :password%>
+      <%= f.text_field :password %>
+    </div>
+    <div><%= f.submit "Submit" %> </div>
   <% end %>
 </div>
