@@ -7,7 +7,11 @@ class UsersController < ApplicationController
     #@user = User.new(username:params['username'], email:params['email'], password:params['password'])
     @user = User.new(user_params)
     if @user.save
-      redirect_to new_user_path
+      log_in @user
+      flash[:success] = "Welcome to the app!"
+      redirect_to static_pages_home_path
+    else
+      render :new
     end
   end
 
@@ -30,6 +34,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
 end

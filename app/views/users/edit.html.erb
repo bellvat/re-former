@@ -1,12 +1,7 @@
-<div>
-  <ul>
-    <% @user.errors.to_a.each do |e| %>
-      <li><%= e %></li>
-    <% end %>
-  </ul>
-</div>
+
 <div>
   <%= form_for @user, url: {action: "update"} do |f| %>
+    <%= render 'shared/error_messages' %>
     <div>
       <%= f.label :username%>
       <%= f.text_field :username %>
